@@ -1,6 +1,7 @@
 import torch 
 import torchaudio
 import numpy as np
+import resampy
 
 SAMPLE_RATE = 48000
 N_FFT = (SAMPLE_RATE * 64) // 1000 
@@ -13,7 +14,9 @@ class SpeechProcessing:
         self.hop_length = hop_length
         self.max_len = 165000
     def load_sample(self, file):
-        waveform, _ = torchaudio.load(file)
+        waveform, sr = torchaudio.load(file)
+        if sr != SAMPLE_RATE:
+            waveform = resampy.resample(waveform, sr, SAMPLE_RATE)
         return waveform
         
     def _prepare_sample(self, waveform):

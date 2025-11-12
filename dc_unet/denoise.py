@@ -1,6 +1,8 @@
 from model import DCUnet20
 from processor import SpeechProcessing
 import torch
+import torchaudio
+import resampy
 
 SAMPLE_RATE = 48000
 N_FFT = (SAMPLE_RATE * 64) // 1000 
@@ -24,6 +26,7 @@ class Inference(object):
         self.processor = SpeechProcessing(N_FFT, HOP_LENGTH)
     
     def inference(self, audio_path, output_path):
+        _, sr = torchaudio.load(audio_path)
         with torch.no_grad():
             input_tensors = self.processor(audio_path)
             output_tensors = []
@@ -32,4 +35,4 @@ class Inference(object):
                 output_tensor = self.model(input_tensor, is_istft=True)
                 output_tensors.append(output_tensor)
             output = torch.cat(output_tensors, dim=1)
-            self.processor.save(output, output_path)
+            self.processor.save(output, output_path, sample_rate=sr)
