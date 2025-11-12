@@ -1,0 +1,2 @@
+wget https://raw.githubusercontent.com/NVIDIA/CleanUNet/main/exp/DNS-large-full/checkpoint/pretrained.pkl
+wget https://raw.githubusercontent.com/NVIDIA/CleanUNet/main/exp/DNS-large-high/checkpoint/pretrained.pkl
