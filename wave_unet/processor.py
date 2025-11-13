@@ -1,6 +1,6 @@
 # Author: github.com/vbelz/Speech-enhancement
 
-from model.config import *
+from modules.config import *
 import os
 import librosa
 import numpy as np

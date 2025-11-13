@@ -1,4 +1,4 @@
-from model import DCUnet20
+from modules import DCUnet20
 from processor import SpeechProcessing
 import torch
 import torchaudio

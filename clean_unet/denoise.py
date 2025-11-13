@@ -1,4 +1,4 @@
-from model import CleanUNet
+from modules import CleanUNet
 import json 
 import torch
 import torchaudio

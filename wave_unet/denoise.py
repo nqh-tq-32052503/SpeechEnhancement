@@ -1,7 +1,7 @@
 
 import torch 
-from model.model import UNet, UNet_ResNet
-from model.config import N_FFT, HOP_LENGTH_FFT, HOP_LENGTH_FRAME, SAMPLE_RATE, FRAME_LENGTH, REDUCE_RATE, MIN_DURATION
+from wave_unet.modules.modules import UNet, UNet_ResNet
+from modules.config import N_FFT, HOP_LENGTH_FFT, HOP_LENGTH_FRAME, SAMPLE_RATE, FRAME_LENGTH, REDUCE_RATE, MIN_DURATION
 from processor import audio_files_to_numpy, numpy_audio_to_matrix_spectrogram, matrix_spectrogram_to_numpy_audio, inv_scaled_ou, scaled_in
 import soundfile as sf
 
