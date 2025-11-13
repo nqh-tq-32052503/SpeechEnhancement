@@ -99,6 +99,7 @@ def inference(file: UploadFile = File(...), output: str = "output.wav", model: s
         selected_model = MODELS[model]
         selected_model.inference(wav_path, output)
         print("Result is saved at: ", os.path.abspath(output))
+        return os.path.abspath(output)
 
 
 if __name__ == "__main__":
