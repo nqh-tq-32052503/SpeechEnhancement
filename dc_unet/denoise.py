@@ -14,7 +14,7 @@ MODES = {
     "noise2noise" : "./weights/noise2noise.pth"
 }
 
-class Inference(object):
+class InferenceDcUNet(object):
     def __init__(self, model_type):
         model_weights_path = MODES[model_type]
         self.model = DCUnet20(N_FFT, HOP_LENGTH)

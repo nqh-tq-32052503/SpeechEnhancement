@@ -8,33 +8,23 @@ import resampy
 MODES = {
     "full" : {
         "config" : "./config/DNS-large-full.json",
-        "checkpoint" : "https://raw.githubusercontent.com/NVIDIA/CleanUNet/main/exp/DNS-large-full/checkpoint/pretrained.pkl"
+        "checkpoint" : "./full.pkl"
     },
     "high" : {
         "config" : "./config/DNS-large-high.json",
-        "checkpoint" : "https://raw.githubusercontent.com/NVIDIA/CleanUNet/main/exp/DNS-large-high/checkpoint/pretrained.pkl"
+        "checkpoint" : "./high.pkl"
     }
 }
 
-def download_weight(mode):
-    import requests
-
-    url = MODES[mode]["checkpoint"]
-    output_file = f"./{mode}.pkl"
-
-    response = requests.get(url)
-    with open(output_file, "wb") as f:
-        f.write(response.content)
-    return output_file
 
 
-class Inference(object):
+class InferenceCleanUNet(object):
     def __init__(self, model_type="full", device="cuda"):
-        model_path = download_weight(model_type)
-        config_path = MODES[model_type]
-        with open(config_path) as f:
+        model_path = MODES[model_type]["checkpoint"]
+        config_path = MODES[model_type]["config"]
+        with open(config_path, "r") as f:
             data = f.read()
-        config = json.loads(data)
+            config = json.loads(data)
         self.SAMPLE_RATE = config["trainset_config"]["sample_rate"]
         network_config = config["network_config"] 
         self.net = CleanUNet(**network_config).cuda()

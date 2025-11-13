@@ -7,7 +7,7 @@ import soundfile as sf
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-class Inference(object):
+class InferenceWaveUNet(object):
     def __init__(self, model_type):
         if model_type == 'Unet':
             model = UNet(start_fm=32)
