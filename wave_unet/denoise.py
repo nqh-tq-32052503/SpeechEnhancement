@@ -1,8 +1,8 @@
 
 import torch 
 from wave_unet.modules.modules import UNet, UNet_ResNet
-from modules.config import N_FFT, HOP_LENGTH_FFT, HOP_LENGTH_FRAME, SAMPLE_RATE, FRAME_LENGTH, REDUCE_RATE, MIN_DURATION
-from processor import audio_files_to_numpy, numpy_audio_to_matrix_spectrogram, matrix_spectrogram_to_numpy_audio, inv_scaled_ou, scaled_in
+from wave_unet.modules.config import N_FFT, HOP_LENGTH_FFT, HOP_LENGTH_FRAME, SAMPLE_RATE, FRAME_LENGTH, REDUCE_RATE, MIN_DURATION
+from wave_unet.processor import audio_files_to_numpy, numpy_audio_to_matrix_spectrogram, matrix_spectrogram_to_numpy_audio, inv_scaled_ou, scaled_in
 import soundfile as sf
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

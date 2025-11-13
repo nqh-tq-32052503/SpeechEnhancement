@@ -1,6 +1,6 @@
 # Author: github.com/vbelz/Speech-enhancement
 
-from modules.config import *
+from wave_unet.modules.config import *
 import os
 import librosa
 import numpy as np

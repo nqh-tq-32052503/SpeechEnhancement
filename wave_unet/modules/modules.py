@@ -1,10 +1,10 @@
-from modules.config import N_CLASSES, START_FRAME
+from wave_unet.modules.config import N_CLASSES, START_FRAME
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from collections import OrderedDict
 
-from utils.common import ConvBlock, DoubleConvBlock, ResidualBlock
+from wave_unet.utils.common import ConvBlock, DoubleConvBlock, ResidualBlock
 
 class UNet(nn.Module):
     def __init__(self, in_channels=1, n_classes=N_CLASSES, start_fm=START_FRAME):

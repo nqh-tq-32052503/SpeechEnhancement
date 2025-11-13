@@ -1,5 +1,5 @@
-from modules import DCUnet20
-from processor import SpeechProcessing
+from dc_unet.modules import DCUnet20
+from dc_unet.processor import SpeechProcessing
 import torch
 import torchaudio
 import resampy
@@ -10,8 +10,8 @@ HOP_LENGTH = (SAMPLE_RATE * 16) // 1000
 DEVICE = "cuda"
 
 MODES = {
-    "noise2clean" : "./weights/noise2clean.pth",
-    "noise2noise" : "./weights/noise2noise.pth"
+    "noise2clean" : "./dc_unet/weights/noise2clean.pth",
+    "noise2noise" : "./dc_unet/weights/noise2noise.pth"
 }
 
 class InferenceDcUNet(object):

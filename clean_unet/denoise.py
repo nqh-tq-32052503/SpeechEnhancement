@@ -1,4 +1,4 @@
-from modules import CleanUNet
+from clean_unet.modules import CleanUNet
 import json 
 import torch
 import torchaudio
@@ -7,12 +7,12 @@ import resampy
 
 MODES = {
     "full" : {
-        "config" : "./config/DNS-large-full.json",
-        "checkpoint" : "./full.pkl"
+        "config" : "./clean_unet/config/DNS-large-full.json",
+        "checkpoint" : "./clean_unet/full.pkl"
     },
     "high" : {
-        "config" : "./config/DNS-large-high.json",
-        "checkpoint" : "./high.pkl"
+        "config" : "./clean_unet/config/DNS-large-high.json",
+        "checkpoint" : "./clean_unet/high.pkl"
     }
 }
 
