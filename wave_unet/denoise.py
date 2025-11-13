@@ -11,10 +11,10 @@ class InferenceWaveUNet(object):
     def __init__(self, model_type):
         if model_type == 'Unet':
             model = UNet(start_fm=32)
-            model.load_state_dict(torch.load('./model/unet.pth', map_location='cpu'))
+            model.load_state_dict(torch.load('./wave_unet/modules/unet.pth', map_location='cpu'))
         else:
             model = UNet_ResNet(start_fm=16)
-            model.load_state_dict(torch.load('./model/unetres.pth', map_location='cpu'))
+            model.load_state_dict(torch.load('./wave_unet/modules/unetres.pth', map_location='cpu'))
         self.model = model 
         self.model.eval().to(device)
     

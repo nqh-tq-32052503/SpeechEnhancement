@@ -1,4 +1,4 @@
 cd clean_unet
 
-gdown https://drive.google.com/uc?id=1n10cBS3HS1HYoptqGbfg5ULtiVZm4dG4
-gdown https://drive.google.com/uc?id=1QLbPn_F84CJufFT2D8IArMdVxGdPWsOF
+gdown -O ./clean_unet/ https://drive.google.com/uc?id=1n10cBS3HS1HYoptqGbfg5ULtiVZm4dG4
+gdown -O ./clean_unet/ https://drive.google.com/uc?id=1QLbPn_F84CJufFT2D8IArMdVxGdPWsOF

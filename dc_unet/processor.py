@@ -16,7 +16,9 @@ class SpeechProcessing:
     def load_sample(self, file):
         waveform, sr = torchaudio.load(file)
         if sr != SAMPLE_RATE:
+            waveform = waveform.numpy()
             waveform = resampy.resample(waveform, sr, SAMPLE_RATE)
+            waveform = torch.from_numpy(waveform)
         return waveform
         
     def _prepare_sample(self, waveform):
