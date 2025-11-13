@@ -1,2 +1,4 @@
-wget https://raw.githubusercontent.com/NVIDIA/CleanUNet/main/exp/DNS-large-full/checkpoint/pretrained.pkl
-wget https://raw.githubusercontent.com/NVIDIA/CleanUNet/main/exp/DNS-large-high/checkpoint/pretrained.pkl
+cd clean_unet
+
+gdown https://drive.google.com/uc?id=1n10cBS3HS1HYoptqGbfg5ULtiVZm4dG4
+gdown https://drive.google.com/uc?id=1QLbPn_F84CJufFT2D8IArMdVxGdPWsOF
