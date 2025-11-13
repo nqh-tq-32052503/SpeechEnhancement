@@ -36,3 +36,4 @@ class InferenceDcUNet(object):
                 output_tensors.append(output_tensor)
             output = torch.cat(output_tensors, dim=1)
             self.processor.save(output, output_path, sample_rate=sr)
+            torch.cuda.empty_cache()

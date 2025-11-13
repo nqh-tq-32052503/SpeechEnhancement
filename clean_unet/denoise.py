@@ -40,6 +40,7 @@ class InferenceCleanUNet(object):
         noisy_audio = noisy_audio.unsqueeze(0).to(self.device)
         generated_audio = self.net(noisy_audio)
         output_audio = generated_audio[0].squeeze().detach().cpu().numpy()
+        torch.cuda.empty_cache()
         if output_path is not None:
             wavwrite(output_path, self.SAMPLE_RATE, output_audio )
             return output_path

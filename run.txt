@@ -1,0 +1,9 @@
+docker build -t denoise-api:cu124 .
+
+docker run --rm -p 8041:8041 --gpus all denoise-api:cu124
+
+cd .......
+
+curl -X POST "http://localhost:8041/inference" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "file=@sample.wav" -F "model='...'" -F "output='output.wav'"
+
+nohup docker run -d --rm -p 8041:8041 --gpus all denoise-api:cu124 > server.log 2>&1 &

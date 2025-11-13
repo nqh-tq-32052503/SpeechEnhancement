@@ -32,3 +32,4 @@ class InferenceWaveUNet(object):
             nb_samples = ou_audio.shape[0]
             denoise_long = ou_audio.reshape(1, nb_samples*FRAME_LENGTH)*10
             sf.write(output_path, denoise_long[0, :], SAMPLE_RATE)
+            torch.cuda.empty_cache()
